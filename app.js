@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const port = 3000
+const posts = require("./routers/posts")
 
 app.use(express.static("public"))
 app.use(express.json())
@@ -11,3 +12,5 @@ app.listen(port, (() => {
 app.get("/", (req, res) => {
     res.send("main page")
 })
+
+app.use("/post", posts)
